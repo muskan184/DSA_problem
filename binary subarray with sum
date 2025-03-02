@@ -1,0 +1,21 @@
+class Solution {
+public:
+int sub(vector<int>&nums,int goal){
+    int i=0,j=0,sum=0,cnt=0;
+    if(goal<0) return 0;
+        while(j<nums.size()){
+            sum+=nums[j];
+            while(sum >goal){
+                sum =sum-nums[i];
+                i=i+1;
+               
+            }
+             cnt+=(j-i+1);
+            j=j+1;
+        }
+        return cnt;
+}
+    int numSubarraysWithSum(vector<int>& nums, int goal) {
+        return sub(nums,goal)-sub(nums,goal-1);
+    }
+};
