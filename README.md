@@ -1,1 +1,1 @@
-<h1>DSA PROBLEMS solution LeetCode and GeeksforGeeks</h1>
+<h1>DSA PROBLEMS solution </h1>
