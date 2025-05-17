@@ -1,1 +1,1 @@
-<h1>DSA PROBLEMS solution </h1>
+<h1>DSA PROBLEMS SOLUTION </h1>
