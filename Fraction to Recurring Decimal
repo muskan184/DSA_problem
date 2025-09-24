@@ -1,0 +1,38 @@
+class Solution {
+public:
+    string fractionToDecimal(int n, int d) {
+        if (n == 0) return "0";
+
+        string result;
+
+        // Step 1: Handle sign
+        if ((n < 0) ^ (d < 0)) result += "-";
+
+        // Step 2: Convert to positive long long
+        long long num = llabs((long long)n);
+        long long den = llabs((long long)d);
+
+        // Step 3: Integer part
+        result += to_string(num / den);
+        long long rem = num % den;
+        if (rem == 0) return result;
+
+        result += ".";
+
+        // Step 4: Remainder part
+        unordered_map<long long, int> remIndex;
+        while (rem != 0) {
+            if (remIndex.find(rem) != remIndex.end()) {
+                result.insert(remIndex[rem], "(");
+                result += ")";
+                break;
+            }
+            remIndex[rem] = result.size();
+            rem *= 10;
+            result += to_string(rem / den);
+            rem %= den;
+        }
+
+        return result;
+    }
+};
